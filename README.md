@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# 🌟Desafio – Roleplay (Contador em React + TypeScript)
+<p align="center"> <img src="https://img.shields.io/badge/React-18.0+-61dafb?style=for-the-badge&logo=react&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-5.0+-3178c6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/Vite-4.0+-646cff?style=for-the-badge&logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" /> </p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto simples e funcional desenvolvido com React + TypeScript para treinar estados e eventos.
+O desafio consiste em criar um contador que incrementa, decrementa e reseta o valor exibido na tela.
 
-Currently, two official plugins are available:
+🎯 Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Criar um contador com:
 
-## React Compiler
+➕ Incremento
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+➖ Decremento
 
-## Expanding the ESLint configuration
+🔄 Reset
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🎨 Layout simples e funcional
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🧠 Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+⚛ React
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+🔷 TypeScript
+
+⚡ Vite
+
+🎨 CSS
+
+📁 Estrutura do Projeto
+src/
+ ├─ components/
+ │   └─ Counter.tsx
+ ├─ App.tsx
+ ├─ App.css
+ └─ main.tsx
+
+🧩 Componente Principal (Counter.tsx)
+```React
+import { useState } from "react"
+
+const Counter: React.FC = () => {
+    const [counter, setCounter] = useState(0); 
+
+    const increment = () => setCounter(prev => prev + 1);
+    const decrement = () => setCounter(prev => prev - 1);
+    const reset = () => setCounter(0);
+
+    return (
+        <div>
+            <header>
+                <h1>Desafio - Roleplay</h1>
+            </header>
+
+            <main>
+                <div>
+                    <div>
+                        <h2>{counter}</h2>
+                    </div>
+
+                    <div>
+                        <button onClick={decrement}>-</button>
+                        <button onClick={reset}>Reset</button>
+                        <button onClick={increment}>+</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    )
+}
+
+export default Counter
 ```
+▶️ Como Rodar o Projeto
+🔹 1. Clone o repositório
+git clone https://github.com/SEU-USUARIO/SEU-REPO.git
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🔹 2. Instale as dependências
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🔹 3. Rode em desenvolvimento
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+Abra no navegador:
+
+http://localhost:5173/
+
+🔹 4. Gerar build para produção
+npm run build
+
+🤝 Contribuição
+
+Sinta-se livre para abrir issues e enviar pull requests.
+Feedbacks são sempre bem-vindos! ✨
+
+📜 Licença
+
+Este projeto está licenciado sob a MIT License.
